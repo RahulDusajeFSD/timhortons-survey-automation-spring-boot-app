@@ -17,7 +17,7 @@ public class SurveyController {
 		this.surveyService = surveyService;
 	}
 	
-	@CrossOrigin(origins = "*")
+	
 	@GetMapping("/submit")
 	public String submitSurvey(@RequestParam String surveyCode, @RequestParam String employeeName) {
 		return surveyService.submitSurvey(surveyCode, employeeName);
