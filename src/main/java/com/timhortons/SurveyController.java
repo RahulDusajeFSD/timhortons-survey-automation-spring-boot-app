@@ -1,5 +1,8 @@
 package com.timhortons;
 
+import java.util.concurrent.CompletableFuture;
+
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +21,11 @@ public class SurveyController {
 	}
 	
 	
+
 	@GetMapping("/submit")
-	public String submitSurvey(@RequestParam String surveyCode, @RequestParam String employeeName) {
-		return surveyService.submitSurvey(surveyCode, employeeName);
+	public CompletableFuture<String> submitSurvey(@RequestParam String surveyCode, @RequestParam String employeeName) {
+	    return surveyService.submitSurveyAsync(surveyCode, employeeName);
 	}
+	
+		
 }

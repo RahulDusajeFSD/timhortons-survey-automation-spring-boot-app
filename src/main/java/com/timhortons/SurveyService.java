@@ -8,18 +8,24 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.time.Duration;
 import java.util.NoSuchElementException;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class SurveyService {
 
 	static final int DELAY_VALUE=2500;
 	
+	@Async
+	public CompletableFuture<String> submitSurveyAsync(String code, String employeeName) {
+	    return CompletableFuture.completedFuture(submitSurvey(code, employeeName));
+	}
 	
 	public String submitSurvey(String code, String employeeName)
 	{
