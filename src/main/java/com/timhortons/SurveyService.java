@@ -36,9 +36,20 @@ public class SurveyService {
 		   
 		   // Making WebDriver headless so not to see GUI window.
 		   ChromeOptions options = new ChromeOptions();
-		   options.addArguments("--headless=new");
+//		   options.addArguments("--headless=new");
+//		   options.addArguments("--no-sandbox");
+//		   options.addArguments("--disable-dev-shm-usage");
+		   
+		   options.addArguments("--headless"); 
 		   options.addArguments("--no-sandbox");
 		   options.addArguments("--disable-dev-shm-usage");
+		   options.addArguments("--disable-gpu");
+		   options.addArguments("--disable-software-rasterizer");
+		   
+		   
+		   
+		   
+		   
 		   WebDriver driver = new ChromeDriver(options);
 		   
 		   
